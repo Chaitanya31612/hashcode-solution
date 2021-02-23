@@ -26,12 +26,12 @@ class delivery {
 public class test{
     public static void main(String args[]) throws IOException {
         //System.setIn(new FileInputStream(new File("a_example")));
-        System.setIn(new FileInputStream(new File("b_little_bit_of_everything.in")));
+        //System.setIn(new FileInputStream(new File("b_little_bit_of_everything.in")));
         //System.setIn(new FileInputStream(new File("c_many_ingredients.in")));
-        //System.setIn(new FileInputStream(new File("d_many_pizzas.in")));
+        System.setIn(new FileInputStream(new File("d_many_pizzas.in")));
         //System.setIn(new FileInputStream(new File("e_many_teams.in")));
 
-        //System.setOut(new PrintStream(new File("output_b_new.txt")));
+        System.setOut(new PrintStream(new File("output_d_new.txt")));
 
         Scanner s = new Scanner(System.in);
         int m=s.nextInt();
@@ -63,9 +63,12 @@ public class test{
         
         int premain = m, numofDel = 0; 
         List<delivery> deliveries = new ArrayList<delivery>();
+        try{
         while(premain>0) {
-            //System.out.println(premain);
+            //System.out.print(premain+" ");
             List<Integer> pizzaindx = new ArrayList<>();
+            if(t2==0 && t4==0 && t3==0)
+                break;
             if (t4 != 0 && premain >= 4) {
                 pizzaindx.add(PizzaIngs.get(0).pid);
                 PizzaIngs.remove(0);
@@ -103,9 +106,13 @@ public class test{
                 numofDel++;
             }
         }
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
         System.out.println(numofDel);
         for (delivery del : deliveries) {
-            System.out.print(del.numofDelivery);
+            System.out.print(del.numofDelivery); 
             for (int i = 0; i < del.numofDelivery; i++) {
                 System.out.print(" " + del.idofpizza.get(i));
             }
