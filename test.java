@@ -105,7 +105,7 @@ public class test{
         }
         System.out.println(numofDel);
         for (delivery del : deliveries) {
-            System.out.print(del.numofDelivery()); 
+            System.out.print(del.numofDelivery);
             for (int i = 0; i < del.numofDelivery; i++) {
                 System.out.print(" " + del.idofpizza.get(i));
             }
